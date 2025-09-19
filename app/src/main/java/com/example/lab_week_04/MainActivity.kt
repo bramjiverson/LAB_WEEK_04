@@ -6,7 +6,7 @@ import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.*
 import com.google.android.material.navigation.NavigationView
-import androidx.drawerlayout.widget.DrawerLayout
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
 
@@ -28,22 +28,25 @@ class MainActivity : AppCompatActivity() {
         appBarConfiguration = AppBarConfiguration(
             setOf(
                 R.id.listFragment,
-                R.id.favoritesFragment
+                R.id.favoritesFragment,
+                R.id.cafeFragment
             ),
             findViewById(R.id.drawer_layout)
         )
 
-        // Setup ActionBar with NavController
         setupActionBarWithNavController(navController, appBarConfiguration)
 
-        // Setup NavigationView with NavController
+        // Setup Navigation Drawer (if exists)
         findViewById<NavigationView>(R.id.nav_view)
+            ?.setupWithNavController(navController)
+
+        // Added this part only - Setup Bottom Navigation
+        findViewById<BottomNavigationView>(R.id.bottom_nav)
             ?.setupWithNavController(navController)
     }
 
     override fun onSupportNavigateUp(): Boolean {
         val navController = findNavController(R.id.nav_host_fragment)
-        return navController.navigateUp(appBarConfiguration) ||
-                super.onSupportNavigateUp()
+        return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
     }
 }
