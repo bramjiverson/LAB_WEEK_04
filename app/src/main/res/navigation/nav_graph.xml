@@ -5,37 +5,58 @@
     android:id="@+id/nav_graph"
     app:startDestination="@id/listFragment">
 
+    <!-- List Fragment -->
     <fragment
         android:id="@+id/listFragment"
         android:name="com.example.lab_week_04.ListFragment"
         android:label="Coffee List"
         tools:layout="@layout/fragment_list">
 
+        <!-- ===== TAMBAHKAN INI: Action ke Detail Fragment ===== -->
         <action
             android:id="@+id/action_listFragment_to_detailFragment"
             app:destination="@id/detailFragment" />
-        <action
-            android:id="@+id/action_listFragment_to_detailFragment2"
-            app:destination="@id/detailFragment" />
+
     </fragment>
 
+    <!-- Detail Fragment - HARUS ADA JUGA -->
     <fragment
         android:id="@+id/detailFragment"
         android:name="com.example.lab_week_04.DetailFragment"
         android:label="Coffee Detail"
-        tools:layout="@layout/fragment_detail" />
+        tools:layout="@layout/fragment_detail">
+
+        <!-- Action kembali ke List -->
+        <action
+            android:id="@+id/action_detailFragment_to_listFragment"
+            app:destination="@id/listFragment"
+            app:popUpTo="@id/listFragment"
+            app:popUpToInclusive="true" />
+
+    </fragment>
+
+    <!-- Favorites Fragment -->
     <fragment
-        android:id="@+id/favoritesFragment2"
+        android:id="@+id/favoritesFragment"
         android:name="com.example.lab_week_04.FavoritesFragment"
-        android:label="fragment_favorites"
+        android:label="Favorites"
         tools:layout="@layout/fragment_favorites" />
-    <activity
-        android:id="@+id/mainActivity2"
-        android:name="com.example.lab_week_04.MainActivity"
-        android:label="activity_main"
-        tools:layout="@layout/activity_main" />
+
+    <!-- Cafe Fragment -->
     <fragment
-        android:id="@+id/cafeFragment2"
+        android:id="@+id/cafeFragment"
         android:name="com.example.lab_week_04.CafeFragment"
-        android:label="CafeFragment" />
+        android:label="Cafe"
+        tools:layout="@layout/fragment_cafe" />
+    <activity
+        android:id="@+id/mainActivity3"
+        android:name="com.example.lab_week_04.MainActivity"
+        android:label="app_bar_main"
+        tools:layout="@layout/app_bar_main" />
+    <fragment
+        android:id="@+id/cafeDetailFragment"
+        android:name="com.example.lab_week_04.CafeDetailFragment"
+        android:label="fragment_cafe_detail"
+        tools:layout="@layout/fragment_cafe_detail" />
+
 </navigation>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="=== KOPI KENANGAN MENU ===\n\n• Kopi Kenangan Mantan - Rp 24.000\n• Kopi Susu Gula Aren - Rp 26.000\n• Avocado Coffee - Rp 32.000\n• Americano Gula Aren - Rp 22.000\n• Teh Tarik - Rp 20.000\n\nNikmati cita rasa kenangan!"
+        android:textSize="16sp"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:lineSpacingExtra="4dp" />
+
+</ScrollView>

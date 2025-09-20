@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.Navigation
+import androidx.navigation.fragment.findNavController  // Tambahkan ini jika belum ada
 
 // parameter default dari template
 private const val ARG_PARAM1 = "param1"
@@ -54,6 +55,7 @@ class ListFragment : Fragment() {
     }
 
     companion object {
+        // ===== INI YANG MUNGKIN BELUM ADA IMPORT-nya =====
         const val COFFEE_ID = "COFFEE_ID"
 
         @JvmStatic

@@ -2,11 +2,12 @@ package com.example.lab_week_04
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
-import androidx.navigation.ui.*
-import com.google.android.material.navigation.NavigationView
+import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.setupActionBarWithNavController
+import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.android.material.navigation.NavigationView
 
 class MainActivity : AppCompatActivity() {
 
@@ -19,12 +20,12 @@ class MainActivity : AppCompatActivity() {
         // Setup Toolbar
         setSupportActionBar(findViewById(R.id.toolbar))
 
-        // Setup Navigation Controller
+        // NavController
         val navHostFragment = supportFragmentManager
             .findFragmentById(R.id.nav_host_fragment) as NavHostFragment
         val navController = navHostFragment.navController
 
-        // Creating top level destinations and adding them to the drawer
+        // AppBarConfiguration dengan drawer
         appBarConfiguration = AppBarConfiguration(
             setOf(
                 R.id.listFragment,
@@ -34,19 +35,23 @@ class MainActivity : AppCompatActivity() {
             findViewById(R.id.drawer_layout)
         )
 
+        // Hubungkan toolbar dengan NavController → hamburger menu berfungsi
         setupActionBarWithNavController(navController, appBarConfiguration)
 
-        // Setup Navigation Drawer (if exists)
+        // Navigation Drawer
         findViewById<NavigationView>(R.id.nav_view)
-            ?.setupWithNavController(navController)
+            .setupWithNavController(navController)
 
-        // Added this part only - Setup Bottom Navigation
+        // BottomNavigationView → tetap berfungsi dengan warna dan selector
         findViewById<BottomNavigationView>(R.id.bottom_nav)
-            ?.setupWithNavController(navController)
+            .setupWithNavController(navController)
     }
 
+    // Toolbar back button & hamburger menu
     override fun onSupportNavigateUp(): Boolean {
-        val navController = findNavController(R.id.nav_host_fragment)
-        return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
+        val navController = (supportFragmentManager
+            .findFragmentById(R.id.nav_host_fragment) as NavHostFragment)
+            .navController
+        return navController.navigateUp() || super.onSupportNavigateUp()
     }
 }

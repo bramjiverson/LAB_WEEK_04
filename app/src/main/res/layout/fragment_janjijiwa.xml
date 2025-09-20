@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="=== JANJI JIWA MENU ===\n\n• Es Kopi Susu - Rp 25.000\n• Latte Oat Milk - Rp 30.000\n• Hazelnut Mocha - Rp 33.000\n• Americano - Rp 20.000\n• Matcha Latte - Rp 28.000\n\nJanji Jiwa, janji kualitas!"
+        android:textSize="16sp"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:lineSpacingExtra="4dp" />
+
+</ScrollView>
